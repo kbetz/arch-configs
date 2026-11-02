@@ -1,13 +1,4 @@
-* {
-  font-family: JetbrainsMono Nerd Font;
-  font-size: 14px;
-  min-height: 0;
-  margin-top: -3px;
-  padding-left: 3px;
-  padding-right: 5px;
-}
-
-@define-color bg rgba(8,8,8,1);
+@define-color bg rgba(8,8,8,0.5);
 @define-color fg #d0d0d0;
 @define-color orange #d65d0e;
 @define-color red #cc241d;
@@ -22,21 +13,33 @@
   background: transparent;
 }
 
+#waybar * {
+  font-family: JetbrainsMono Nerd Font;
+  font-size: 14px;
+}
+
+#waybar > * {
+  margin-top: -4px;
+  margin-right: 8px;
+  margin-left: 12px;
+  margin-bottom: 0px;
+}
+
 #workspaces {
-  margin: 5px;
-  background-color: @bg;
-  border: 2px solid @fg;
-  border-top: 0px;
-  border-radius: 0px 0px 8px 8px;
+  border-bottom: 2px solid @fg;
+  margin-left: 1px;
 }
 
 #workspaces button {
   background: transparent;
   color: @blue;
   border-radius: 0px;
-  border-bottom-width: 2px;
-  margin: 0px 8px;
-  padding-top: 10px;
+  border-bottom: 0px;
+  margin: 0px;
+  padding-top: 8px;
+  padding-bottom: 3px;
+  padding-left: 12px;
+  padding-right: 17px;
 }
 
 #workspaces button.active {
@@ -48,41 +51,55 @@
   color: @red;
 }
 
-#workspaces button:hover {
-  border-bottom-color: @fg;
+#workspaces button:hover,
+#pulseaudio:hover,
+#cpu:hover,
+#memory:hover,
+#power-profiles-daemon:hover,
+#idle_inhibitor:hover,
+#custom-power:hover {
+  background: linear-gradient(to top, @fg, transparent, transparent, transparent);
+}
+
+#workspaces > *:first-child {
+  margin-left: -1px
+}
+
+#workspaces > *:last-child {
+  margin-right: -1px
 }
 
 #window {
   color: @fg;
-  padding-top: 8px;
+  padding-top: 6px;
+  margin-left: 10px;
 }
 
-#custom-music,
-#tray,
-#backlight,
 #clock,
-#battery,
-#idle_inhibitor,
+#tray,
 #pulseaudio,
-#power-profiles-daemon,
-#network,
 #cpu,
 #memory,
-#custom-lock,
-#custom-power,
-#custom-weather,
-#custom-uptime {
-  background-color: @bg;
+#power-profiles-daemon,
+#idle_inhibitor,
+#custom-power {
+  background: transparent;
   padding: 0.5rem 1rem;
-  margin: 5px 5px;
+  margin: 0px 5px;
   border-bottom: 2px solid @fg;
+  min-width: 40px;
 }
 
 #clock {
   color: @fg;
+  background: @bg;
   border-radius: 0px 0px 8px 8px;
   border-left: 2px solid @fg;
   border-right: 2px solid @fg;
+}
+
+#clock:hover {
+  background: linear-gradient(to right, @aqua, @bg, @bg, @bg, @bg, @bg, @bg, @aqua);
 }
 
 #custom-weather {
@@ -93,7 +110,14 @@
 
 #tray {
   background: linear-gradient(to top, @purple, transparent);
+}
 
+#tray > *:hover {
+  /*cursor: pointer;*/
+}
+
+#tray > * > * {
+  padding: 0px 4px;
 }
 
 #battery {
@@ -119,8 +143,6 @@
 
 #pulseaudio {
   color: @gray;
-  border-radius: 0px 0px 0px 8px;
-  border-left: 2px solid @fg;
 }
 
 #power-profiles-daemon {
@@ -138,10 +160,6 @@
 
 #custom-power {
   color: @orange;
-  padding: 0.5rem 1.5rem 0.5rem 1rem;
-  margin-right: 0rem;
-  border-radius: 0px 0px 8px 0px;
-  border-right: 2px solid @fg;
 }
 
 #custom-weather.clear {

@@ -19,18 +19,17 @@
         //"mpd",
         "pulseaudio",
         //"network",
-        "power-profiles-daemon",
         "cpu",
         "memory",
         //"temperature",
         //"backlight",
         //"keyboard-state",
+        "power-profiles-daemon",
         "idle_inhibitor",
         "custom/power"
     ],
     // Modules configuration
     "hyprland/workspaces": {
-        "on-click": "activate",
         //"disable-scroll": true,
         "all-outputs": true,
         //"warp-on-scroll": false,
@@ -46,6 +45,11 @@
             "active": "",
             "default": ""
         }
+    },
+    "hyprland/window": {
+        "separate-outputs": true,
+        "icon": true,
+        "icon-size": 20
     },
     "keyboard-state": {
         "numlock": true,
@@ -99,8 +103,10 @@
     },
     "clock": {
         // "timezone": "America/New_York",
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format": "📅 {:%Y-%m-%d - %H:%M} 🕓"
+        // "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "tooltip": false,
+        "on-click": "pkill -x waycal || waycal --week-start monday",
+        "format": "󰃭 {:%Y-%m-%d | %H:%M} "
     },
     "cpu": {
         "format": "{usage}% ",
