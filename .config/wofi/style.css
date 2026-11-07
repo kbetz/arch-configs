@@ -1,0 +1,57 @@
+@define-color bg rgba(8,8,8,0.8);
+@define-color fg #d0d0d0;
+@define-color orange #d65d0e;
+@define-color red #cc241d;
+@define-color green #98971a;
+@define-color yellow #d79921;
+@define-color blue #458588;
+@define-color purple #b16286;
+@define-color aqua #689d6a;
+@define-color gray #a89984;
+
+window {
+  margin: 0px;
+  font-family: JetbrainsMono Nerd Font;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 2px solid @yellow;
+  background-color: @bg;
+}
+
+#input {
+  margin: 8px;
+  border: 2px solid @purple;
+  font-weight: bold;
+}
+
+#expander-box {
+  margin: 8px;
+  border-radius: 24px;
+  background-color: @bg;
+}
+
+#scroll {
+  margin: 1px;
+}
+
+#entry {
+  margin: 2px 8px;
+  border: 2px solid transparent;
+}
+
+#entry:selected {
+  outline: none;
+  border-radius: 24px;
+  border-color: @aqua;
+  background-color: transparent;
+}
+
+#text,
+#entry arrow {
+  margin-left: 6px;
+  color: @fg;
+}
+
+#entry arrow:hover {
+  color: @blue;
+}
